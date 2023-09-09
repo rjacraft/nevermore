@@ -1,0 +1,24 @@
+[package]
+name = "nevermore"
+version = "0.1.0"
+description = "Derive macros for the bottom type core::convert::Infallible"
+edition = "2021"
+rust-version = "1.72"
+license = "MIT OR Apache-2.0"
+authors = [
+    "Golf <golf25565@proton.me>",
+    "Petr Portnov <me@progrm-jarvis.ru>",
+]
+keywords = ["derive", "bottom-type", "never", "infallible", "proc-macro"]
+categories = ["development-tools::build-utils", "no-std", "no-std::no-alloc", "rust-patterns"]
+repository = "https://github.com/rjacraft/nevermore"
+
+exclude = [".editorconfig", ".github", ".gitignore", ".rustfmt.toml",]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2.0"
+quote = "1.0"
+thiserror = "1.0"
