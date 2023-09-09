@@ -6,8 +6,8 @@
 //! [never-type-tracking-issue]: https://github.com/rust-lang/rust/issues/35121
 
 use proc_macro::TokenStream;
-use quote::{quote, ToTokens};
-use syn::{parse_macro_input, DeriveInput, GenericParam, Generics};
+use quote::quote;
+use syn::{parse_macro_input, DeriveInput};
 
 /// Implements conversion [from][`From`] [`core::convert::Infallible`] for the struct.
 ///
@@ -111,20 +111,11 @@ pub fn derive_from_never(input: TokenStream) -> TokenStream {
         ident, generics, ..
     } = parse_macro_input!(input as DeriveInput);
 
-    let Generics {
-        params: generic_params,
-        where_clause,
-        ..
-    } = generics;
-    let generic_idents = generic_params.iter().map(|param| match param {
-        GenericParam::Lifetime(lifetime_param) => lifetime_param.lifetime.to_token_stream(),
-        GenericParam::Type(type_param) => type_param.ident.to_token_stream(),
-        GenericParam::Const(const_param) => const_param.ident.to_token_stream(),
-    });
+    let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
     proc_macro::TokenStream::from(quote!(
-        impl<#generic_params> ::core::convert::From<::core::convert::Infallible>
-            for #ident <#(#generic_idents),*> #where_clause {
+        impl #impl_generics ::core::convert::From<::core::convert::Infallible>
+            for #ident #ty_generics #where_clause {
             fn from(infallible: ::core::convert::Infallible) -> Self {
                 match infallible {}
             }
