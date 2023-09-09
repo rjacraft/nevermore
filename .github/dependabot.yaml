@@ -6,10 +6,8 @@ updates:
     open-pull-requests-limit: 10
     reviewers: [ rjacraft/nevermore-developer ]
     allow:
-      - dependency-type: indirect
-    ignore:
-      - dependency-name: "*"
-        update-types: [ version-update:semver-patch ]
+      - dependency-type: all
+    versioning-strategy: lockfile-only
     schedule:
       interval: daily
       time: "10:00"
