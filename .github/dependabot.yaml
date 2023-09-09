@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: cargo
+    directory: /
+    labels: [ dependencies, automatic ]
+    open-pull-requests-limit: 10
+    reviewers: [ rjacraft/nevermore-developer ]
+    allow:
+      - dependency-type: all
+    ignore:
+      - dependency-type: indirect
+        update-types: [ version-update:semver-patch ]
+    schedule:
+      interval: daily
+      time: 10:00
+      timezone: Europe/Moscow
+  - package-ecosystem: github-actions
+    directory: /
+    labels: [ dependencies, automatic ]
+    open-pull-requests-limit: 10
+    reviewers: [ rjacraft/nevermore-developer ]
+    schedule:
+      interval: daily
+      time: 10:00
+      timezone: Europe/Moscow
