@@ -6,10 +6,9 @@ updates:
     open-pull-requests-limit: 10
     reviewers: [ rjacraft/nevermore-developer ]
     allow:
-      - dependency-type: all
+      - dependency-type: indirect
     ignore:
-      - dependency-type: direct
-        foo: bar
+      - dependency-name: "*"
         update-types: [ version-update:semver-patch ]
     schedule:
       interval: daily
