@@ -6,7 +6,8 @@ updates:
     open-pull-requests-limit: 10
     reviewers: [ rjacraft/nevermore-developer ]
     allow:
-      - dependency-type: indirect
+      - dependency-type: all
+    versioning-strategy: lockfile-only
     schedule:
       interval: daily
       time: "10:00"
