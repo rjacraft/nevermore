@@ -29,6 +29,7 @@ use syn::{parse_macro_input, DeriveInput, GenericParam, Generics};
 ///     username: String,
 ///     age: u8,
 /// }
+///
 /// assert_from_never::<User>();
 /// ```
 ///
