@@ -1,6 +1,6 @@
 [package]
 name = "nevermore"
-version = "0.1.0"
+version = "0.1.1"
 description = "Derive macros for the bottom type core::convert::Infallible"
 edition = "2021"
 rust-version = "1.72"
@@ -13,14 +13,14 @@ keywords = ["derive", "bottom-type", "never", "infallible", "proc-macro"]
 categories = ["development-tools::build-utils", "no-std", "no-std::no-alloc", "rust-patterns"]
 repository = "https://github.com/rjacraft/nevermore"
 
-exclude = [".editorconfig", ".github", ".gitignore", ".rustfmt.toml",]
+exclude = [".editorconfig", ".github", ".gitignore", ".rustfmt.toml"]
 
 [lib]
 proc-macro = true
 
 [dependencies]
-syn = "2.0"
-quote = "1.0"
+syn = { version = "2.0", default-features = false, features = ["derive", "parsing", "proc-macro", "printing"] }
+quote = { version = "1.0", default-features = false }
 
 [dev-dependencies]
 thiserror = "1.0"
