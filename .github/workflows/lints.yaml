@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.7.0
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8.0
         with:
           toolchain: 1.72.1
       - uses: olix0r/cargo-action-fmt/setup@v2.0.1
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.7.0
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8.0
         with:
           # we have to use nightly since come important options are not stable yet
           toolchain: nightly
@@ -34,7 +34,7 @@ jobs:
       checks: write
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.7.0
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8.0
         with:
           toolchain: 1.72.1
           components: clippy
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.7.0
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8.0
         with:
           toolchain: 1.72.1
       - uses: olix0r/cargo-action-fmt/setup@v2.0.1
