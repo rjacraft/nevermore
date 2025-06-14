@@ -7,25 +7,23 @@ jobs:
     name: Cargo Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
-        with:
-          toolchain: 1.72.1
-      - uses: olix0r/cargo-action-fmt/setup@v2.0.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
+      - uses: olix0r/cargo-action-fmt/setup@9269f3aa1ff01775d95efc97037e2cbdb41d9684 # v2.0.1
       - run: cargo check -q --message-format=json | cargo-action-fmt
 
   rustfmt:
     name: rustfmt
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
         with:
           # we have to use nightly since come important options are not stable yet
           toolchain: nightly
           components: rustfmt
       - name: Rustfmt Check
-        uses: actions-rust-lang/rustfmt@v1.1.1
+        uses: actions-rust-lang/rustfmt@559aa3035a47390ba96088dffa783b5d26da9326 # v1.1.1
 
   clippy:
     name: Clippy
@@ -33,12 +31,11 @@ jobs:
     permissions:
       checks: write
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
         with:
-          toolchain: 1.72.1
           components: clippy
-      - uses: auguwu/clippy-action@1.4.0
+      - uses: auguwu/clippy-action@94a9ff2f6920180b89e5c03d121d0af04a9d3e03 # 1.4.0
         with:
           token: ${{secrets.GITHUB_TOKEN}}
 
@@ -46,9 +43,7 @@ jobs:
     name: Doc
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
-        with:
-          toolchain: 1.72.1
-      - uses: olix0r/cargo-action-fmt/setup@v2.0.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
+      - uses: olix0r/cargo-action-fmt/setup@9269f3aa1ff01775d95efc97037e2cbdb41d9684 # v2.0.1
       - run: cargo doc --no-deps --message-format=json | cargo-action-fmt
