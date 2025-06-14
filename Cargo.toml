@@ -3,7 +3,7 @@ name = "nevermore"
 version = "0.1.1"
 description = "Derive macros for the bottom type core::convert::Infallible"
 edition = "2021"
-rust-version = "1.72"
+rust-version = "1.61"
 license = "MIT OR Apache-2.0"
 authors = [
     "Golf <golf25565@proton.me>",
@@ -23,4 +23,4 @@ syn = { version = "2.0", default-features = false, features = ["derive", "parsin
 quote = { version = "1.0", default-features = false }
 
 [dev-dependencies]
-thiserror = "1.0"
+thiserror = "2.0"

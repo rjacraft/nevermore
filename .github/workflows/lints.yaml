@@ -9,8 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
-        with:
-          toolchain: 1.72.1
       - uses: olix0r/cargo-action-fmt/setup@v2.0.1
       - run: cargo check -q --message-format=json | cargo-action-fmt
 
@@ -36,7 +34,6 @@ jobs:
       - uses: actions/checkout@v4.2.2
       - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
         with:
-          toolchain: 1.72.1
           components: clippy
       - uses: auguwu/clippy-action@1.4.0
         with:
@@ -48,7 +45,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
-        with:
-          toolchain: 1.72.1
       - uses: olix0r/cargo-action-fmt/setup@v2.0.1
       - run: cargo doc --no-deps --message-format=json | cargo-action-fmt
