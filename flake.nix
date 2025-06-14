@@ -51,6 +51,7 @@
             packages = [
               rust
               pkgs.cargo-msrv
+              pkgs.pinact
             ];
             shellHook = config.pre-commit.installationScript;
           };
